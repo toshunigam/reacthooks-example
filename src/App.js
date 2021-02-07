@@ -1,11 +1,13 @@
+import { Container } from 'react-bootstrap';
 import './App.css';
-import { Header } from './components/layouts/header';
+import Navigation from './components/layouts/navigation';
+// import { Header } from './components/layouts/header';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <Container>
+      <Navigation />
+    </Container>
   );
 }
 
