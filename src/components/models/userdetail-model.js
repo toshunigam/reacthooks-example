@@ -10,7 +10,7 @@ const UserDetailModel = props => {
      centered
    >
      <Modal.Header>
-       <Image fluid src={`https://image.tmdb.org/t/p/original`} alt={props.movie.name} />
+       <Image fluid src={`https://gventure.us/wp-content/uploads/2019/12/indra-patel.png`} alt={props.movie.name} />
      </Modal.Header>
      <Modal.Body>
        <Modal.Title id="contained-modal-title-vcenter">
