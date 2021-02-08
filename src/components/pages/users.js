@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Table, NavLink } from "react-bootstrap";
+import UserDetailModel from "../models/userdetail-model";
  
 const UsersTable = () => {
+  const [modalShow, setModalShow] = useState(false);
  let keys = ["name", "email", "age", "action"];
- const movies = [{name:'toshu',email:'tosu@gvenuter.ner',age:34},{name:'aparna',email:'aparna@gventie.net',age:4},{name:'vandana',email:'vandana@gventure.net',age:45}];
+ const movies = [{id:1,name:'toshu',email:'tosu@gvenuter.ner',age:34},{id:2,name:'aparna',email:'aparna@gventie.net',age:4},{id:3,name:'vandana',email:'vandana@gventure.net',age:45}];
  
  return (
    <div style={{ width: "90%", margin: "0 auto" }}>
@@ -27,11 +29,24 @@ const UsersTable = () => {
        <tbody>
          {movies.map(movie => {
            return (
-             <tr key={movie.name}>
+             <tr key={movie.id}>
                <td>{movie.name}</td>
                <td>{movie.email}</td>
                <td>{movie.age}</td>
-               <td>modal will go here…</td>
+               <td>
+                 <NavLink
+                   value={movie.id}
+                   onClick={() => {
+                     setModalShow(movie.id);
+                   }}
+                 >Details
+                 </NavLink>
+                 <UserDetailModel
+                   movie={movie}
+                   show={modalShow === movie.id}
+                   onHide={() => setModalShow(false)}
+                 />
+               </td>
              </tr>
            );
          })}
