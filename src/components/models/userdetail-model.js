@@ -9,7 +9,7 @@ const UserDetailModel = props => {
      aria-labelledby="contained-modal-title-vcenter"
      centered
    >
-     <Modal.Header>
+     <Modal.Header closeButton>
        <Image fluid src={`https://gventure.us/wp-content/uploads/2019/12/indra-patel.png`} alt={props.movie.name} />
      </Modal.Header>
      <Modal.Body>
@@ -23,5 +23,5 @@ const UserDetailModel = props => {
    </Modal>
  );
 };
- 
+
 export default UserDetailModel;

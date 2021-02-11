@@ -4,7 +4,7 @@ import UserDetailModel from "../models/userdetail-model";
  
 const UsersTable = () => {
   const [modalShow, setModalShow] = useState(false);
- let keys = ["name", "email", "age", "action"];
+ let keys = ["Name", "Email", "Age", "Action"];
  const movies = [{id:1,name:'toshu',email:'tosu@gvenuter.ner',age:34},{id:2,name:'aparna',email:'aparna@gventie.net',age:4},{id:3,name:'vandana',email:'vandana@gventure.net',age:45}];
  
  return (

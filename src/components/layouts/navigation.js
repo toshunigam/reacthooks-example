@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import {
  Navbar,
  Nav,
  NavDropdown,
  Form,
  FormControl,
- Button
+ Button,
+ NavLink
 } from "react-bootstrap";
+import LoginModel from "../models/login-model";
 
  
 const Navigation = () => {
-//  const [modalShow, setModalShow] = useState(false);
+ const [modalShow, setModalShow] = useState(false);
  
  return (
    <Navbar bg="primary" variant="dark" expand="md">
@@ -18,13 +20,21 @@ const Navigation = () => {
      <Navbar.Toggle aria-controls="basic-navbar-nav" />
      <Navbar.Collapse id="basic-navbar-nav">
        <Nav className="mr-auto">
-         <Nav.Link
-           variant="transparent"
-           style={{ width: "50px" }}
-         >
+       <NavLink
+          style={{ width: "50px" }}
+          onClick={() => {
+            setModalShow(true);
+          }}
+        >
            Login
-         </Nav.Link>
-         <Nav.Link href="#link">Link</Nav.Link>
+           
+         </NavLink>
+         <LoginModel
+           show={modalShow} 
+           onHide={() => setModalShow(false)} 
+        />
+
+         <Nav.Link href="#link">Register</Nav.Link>
          <NavDropdown title="Sample Dropdown" id="basic-nav-dropdown">
            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
            <NavDropdown.Item href="#action/3.2">
