@@ -1,13 +1,15 @@
-import useSignUpForm from '../customhooks/customformhooks';
+import React from "react";
+import useRegisterForm from '../customhooks/customformhooks';
 
 function Register(){
     const signup = () => {
+        // console.log(inputs)
         alert(`User Created!
                Name: ${inputs.firstName} ${inputs.lastName}
                Email: ${inputs.email}`);
     }
     
-    const {inputs, handleInputChange, handleSubmit} = useSignUpForm(signup);
+    const {handleSubmit, handleInputChange, inputs} = useRegisterForm(signup);
 
     return(
         <form onSubmit={handleSubmit}>

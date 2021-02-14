@@ -4,6 +4,7 @@ const useRegisterForm = (callback) =>{
     const[inputs, setInputs] = useState({});
     
     const handleSubmit=(event)=>{
+        console.log(event)
         if(event){
             event.preventDefault();
         }
@@ -11,6 +12,7 @@ const useRegisterForm = (callback) =>{
     }
     
     const hanldeInputChange = (event) =>{
+        console.log(event.target.value)
         event.persist();
         setInputs(inputs=>({...inputs,[event.target.name]:event.target.value}))
     }
