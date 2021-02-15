@@ -13,8 +13,10 @@ const useRegisterForm = (callback) =>{
     
     const hanldeInputChange = (event) =>{
         console.log(event.target.value)
+        const { target } = event;
+        const {name, value} = target;
         event.persist();
-        setInputs(inputs=>({...inputs,[event.target.name]:event.target.value}))
+        setInputs({...inputs,[name]:value})
     }
 
     return {
