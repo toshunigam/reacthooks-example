@@ -11,16 +11,10 @@ const initialValues = {
 const SignUp = () => {
     const {
     values,
-    errors,
-    touched,
     handleChange,
-    handleBlur,
     handleSubmit
-    } = useCustomForm({
-    initialValues,
-    onSubmit: values => console.log({ values })
-    });
-
+    } = useCustomForm({ initialValues, onSubmit: values => console.log(values.values) });
+    
     return (
     <form onSubmit={handleSubmit} className="App">
         <h1>Custom Forms with Hooks</h1>
