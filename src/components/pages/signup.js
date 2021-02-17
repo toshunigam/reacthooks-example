@@ -1,11 +1,13 @@
 import React from "react";
+import { Form, Button } from "react-bootstrap";
 
 import useCustomForm from "../customhooks/formhook";
 
 const initialValues = {
-    name: "",
-    lastName: "",
-    age: 0
+    fullname: "",
+    email: "",
+    phone: 0,
+    password:""
 };
 
 const SignUp = () => {
@@ -13,40 +15,39 @@ const SignUp = () => {
     values,
     handleChange,
     handleSubmit
-    } = useCustomForm({ initialValues, onSubmit: values => console.log(values.values) });
+    } = useCustomForm({ initialValues, onSubmitForm: values => console.log(values.values) });
     
     return (
-    <form onSubmit={handleSubmit} className="App">
-        <h1>Custom Forms with Hooks</h1>
+        <div style={{ width: "50%", margin: "0 auto" }}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formBasicName">
+                    <Form.Label>Full name</Form.Label>
+                    <Form.Control type="text" name="fullname" onChange={handleChange} value={values.fullname} />
+                </Form.Group>
 
-        <label>Name</label>
-        <input
-        type="text"
-        name="name"
-        onChange={handleChange}
-        value={values.name}
-        />
-        <br />
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" name="email" onChange={handleChange} value={values.email} />
+                    <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
 
-        <label>Lastname</label>
-        <input
-        type="text"
-        name="lastName"
-        onChange={handleChange}
-        value={values.lastName}
-        />
-        <br />
+                <Form.Group controlId="formBasicPhone">
+                    <Form.Label>Phone</Form.Label>
+                    <Form.Control type="number" name="phone" onChange={handleChange} value={values.phone} />
+                </Form.Group>
 
-        <label>Age</label>
-        <input
-        type="number"
-        name="age"
-        onChange={handleChange}
-        value={values.age}
-        />
-        <br />
-        <button type="submit">Submit</button>
-    </form>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" name="password" onChange={handleChange} value={values.password} />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+
+        </div>
     );
 };
 

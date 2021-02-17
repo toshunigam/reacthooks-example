@@ -1,16 +1,15 @@
 import { Container } from 'react-bootstrap';
 import './App.css';
 import Navigation from './components/layouts/navigation';
-import UsersTable from './components/pages/users';
-// import Register from './components/pages/register';
-import SignUp from './components/pages/signup';
+import routes from './routes';
+import { useRoutes } from 'hookrouter';
 
 function App() {
+  const routeResult = useRoutes(routes)
   return (
     <Container>
       <Navigation />
-      <UsersTable />
-      <SignUp />
+      {routeResult}
     </Container>
   );
 }

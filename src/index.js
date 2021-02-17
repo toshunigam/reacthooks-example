@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const store = createStore(
   rootReducer,

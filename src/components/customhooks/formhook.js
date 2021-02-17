@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
     const useCustomForm = ({
       initialValues,
-      onSubmit
+      onSubmitForm
     }) => {
       const [values, setValues] = useState(initialValues || {});
       const [errors, setErrors] = useState({});
@@ -25,7 +25,7 @@ import { useState, useEffect, useRef } from "react";
       const handleSubmit = (event) => {
         if (event) event.preventDefault();
         setErrors({ ...errors });
-        onSubmit({ values, errors });
+        onSubmitForm({ values, errors });
       };
 
       return {
