@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, FormControl, Modal } from "react-bootstrap";
  
 const LoginModel = props => {
+    const email = useRef()
+    const password = useRef()
+    function handleInput(event){
+        event.preventDefault();
+        console.log(email.current.value)
+    }
+    function submitForm(){
+        console.log(email.current.value)
+        console.log(password.current.value)
+    }
  return (
    <Modal
     {...props}
@@ -13,14 +23,14 @@ const LoginModel = props => {
         <h3>User Login</h3>
     </Modal.Header>
     <Modal.Body>
-        <FormControl type="text" placeholder="Email" className="mr-sm-2 m-1" />
-        <FormControl type="password" placeholder="Password" className="mr-sm-2 m-1" />
+        <FormControl type="text" placeholder="Email" ref={email} onChange={(event)=>handleInput(event)} className="mr-sm-2 m-1" />
+        <FormControl type="password" placeholder="Password" ref={password} onChange={(event)=>handleInput(event)} className="mr-sm-2 m-1" />
 
     </Modal.Body>
 
     <Modal.Footer>
         <Button variant="secondary">Close</Button>
-        <Button variant="primary">Save changes</Button>
+        <Button variant="primary" onClick={()=>submitForm()}>Save changes</Button>
     </Modal.Footer>
    </Modal>
  );
