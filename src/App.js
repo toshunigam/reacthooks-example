@@ -9,7 +9,7 @@ function App() {
   return (
     <Container>
       <Navigation />
-      {routeResult}
+      {routeResult||<h1>Page Not Found</h1>}
     </Container>
   );
 }
