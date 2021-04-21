@@ -35,6 +35,11 @@ const Navigation = () => {
         />
 
          <Nav.Link href="/signup">Register</Nav.Link>
+         <Nav.Link href="/product">Product</Nav.Link>
+         <Nav.Link href="/services">Services</Nav.Link>
+         <Nav.Link href="/software">Software</Nav.Link>
+         <Nav.Link href="/about">About</Nav.Link>
+         <Nav.Link href="/contact">Contact</Nav.Link>
 
          <NavDropdown title="Technologies" id="basic-nav-dropdown">
            <NavDropdown.Item href="#action/3.1">Database</NavDropdown.Item>
