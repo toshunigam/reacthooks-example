@@ -33,7 +33,7 @@ const Product = () => {
                                 <td>{item.title}</td>
                                 <td>{item.description}</td>
                                 <td>{item.created}</td>
-                                <td><button onClick={()=>dispatch(action_edit_product(item.created))}>Edit</button><button onClick={()=>dispatch(action_delete_product(item.created))}>Delete</button></td>
+                                <td>{/* <button onClick={()=>dispatch(action_edit_product(item.created))}>Edit</button> */}<button onClick={()=>dispatch(action_delete_product(item.created))}>Delete</button></td>
                             </tr>
                         )
                     }):<tr><td colSpan="5">No records</td></tr>}

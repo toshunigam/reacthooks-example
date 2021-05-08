@@ -3,13 +3,14 @@ const productReducer = (state=[],action)=>{
         case 'ADD_PRODUCT':
             return state.concat(action.payload);
         case 'EDIT_PRODUCT':
-            return state.map(item=>{
+            /* return state.map(item=>{
                 if(item.created===action.payload.id){
                     return {...state,updateKey:action.payload.id}
                 }else{
                     return state
                 }
-            });
+            }); */
+            return state.filter(item=>{return item.created===action.payload.id});
         case 'UPDATE_PRODUCT':
             return state.map((item=>{
                 if(item.created===action.payload.updateKey){
