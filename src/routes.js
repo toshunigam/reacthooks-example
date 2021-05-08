@@ -5,6 +5,7 @@ import Services from "./components/pages/services";
 import Software from "./components/pages/software";
 import About from "./components/pages/about";
 import Contact from "./components/pages/contact";
+import ProductForm from "./components/pages/ProductForm";
 
 const routes = {
     "/": () => <UsersTable />,
@@ -13,7 +14,8 @@ const routes = {
     "/services":()=><Services />,
     "/software":()=><Software />,
     "/about":()=><About />,
-    "/contact":()=><Contact />
+    "/contact":()=><Contact />,
+    "/addproduct":()=><ProductForm />
 }
 
 export default routes;
