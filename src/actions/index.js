@@ -17,3 +17,18 @@ export const action_delete_product = (id)=>{
         payload:id
     }
 }
+
+export const action_edit_product = (id)=>{
+    console.log(id)
+    return{
+        type:'EDIT_PRODUCT',
+        payload:{id:id,isEdit:true} 
+    }
+}
+
+export const action_update_product = (formData)=>{
+    return{
+        type:'UPDATE_PRODUCT',
+        payload:formData
+    }
+}
