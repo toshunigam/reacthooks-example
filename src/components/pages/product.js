@@ -7,13 +7,12 @@ const Product = () => {
     const dispatch = useDispatch();
 
     const product = useSelector(state => state.productReduce);
-    console.log("LIST", product)
+    // console.log("LIST", product)
     return (
         <Row>
-            <div style={{ width: "100%", margin: "0 auto" }}>
+            <div style={{ width: "97%", margin: "0 auto" }}>
                 <Alert variant="success">
-                        <Alert.Heading>Product Page</Alert.Heading>
-                        <p>CRUD Example using redux</p>
+                    Product Page CRUD Example using redux
                 </Alert>
                     
                 <div style={{ width: "50%", margin: "0 auto" }}>
