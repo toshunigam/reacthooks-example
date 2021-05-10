@@ -42,3 +42,19 @@ export const action_add_contact = (formData)=>{
         payload:formData
     }
 }
+
+export const action_delete_contact = (key)=>{
+    // console.log(key)
+    return{
+        type:'DELETE_CONTACT',
+        payload:key
+    }
+}
+
+export const action_edit_contact = (key)=>{
+    return{
+        type:'EDIT_CONTACT',
+        payload:key
+    }
+}
+

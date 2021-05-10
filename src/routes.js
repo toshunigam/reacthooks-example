@@ -16,10 +16,10 @@ const routes = {
     "/software":()=><Software />,
     "/about":()=><About />,
     "/contact":()=><Contact />,
-    "/contact/:{id}":()=><Contact />,
+    "/contact/:id":()=><Contact />,
     "/addproduct":()=><ProductForm />,
     "/addcontact":()=><ContactForm />,
-    "/addcontact/:{id}":()=><ContactForm />
+    "/addcontact/:id":()=><ContactForm />
 }
 
 export default routes;

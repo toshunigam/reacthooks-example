@@ -1,23 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { action_add_contact } from "../actions";
 
 function ContactForm() {
-    const [fullname, setFullname] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
-    const [policy, setPolicy] = useState('')
+    const [fullname, setFullname]       = useState('');
+    const [email, setEmail]             = useState('');
+    const [phone, setPhone]             = useState('');
+    const [address, setAddress]         = useState('');
+    const [policy, setPolicy]           = useState('')
 
-    const handleFullname = (e) =>setFullname(e.target.value)
-    const handleEmail = (e) =>setEmail(e.target.value)
-    const handlePhone = (e) =>setPhone(e.target.value)
-    const handleAddress = (e) =>setAddress(e.target.value)
-    const handlePolicy = (e) =>setPolicy(e.target.value)
+    const handleFullname                = (e) => setFullname(e.target.value)
+    const handleEmail                   = (e) => setEmail(e.target.value)
+    const handlePhone                   = (e) => setPhone(e.target.value)
+    const handleAddress                 = (e) => setAddress(e.target.value)
+    const handlePolicy                  = (e) => setPolicy(e.target.value)
 
-    const contact = useSelector(state=>state.contactReduce);
-    const dispatch = useDispatch();
+    const contact                       = useSelector(state=>state.contactReduce);
+    const dispatch                      = useDispatch();
+
+    console.log(contact)
+
+    useEffect(()=>{
+        if(contact.length>0){
+            contact.filter(item=>{
+                if(item.editable){
+                    setFullname(item.fullname);
+                    setEmail(item.email)
+                    setPhone(item.phone)
+                    setAddress(item.address)    
+                }
+                return true;
+            })
+        }
+    },[contact])
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -37,6 +53,7 @@ function ContactForm() {
             setAddress('')
         }
     }
+
     return (<>
         <Form>
             <Form.Group controlId="formGridFullname">

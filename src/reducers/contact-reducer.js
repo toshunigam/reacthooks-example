@@ -3,7 +3,15 @@ const contactReducer = (state=[],action)=>{
         case 'ADD_CONTACT':
             return state.concat(action.payload)
         case 'DELETE_CONTACT':
-            return state.filter(item=>{return item.id===action.payload});
+            return state.filter(item=>{return item.id!==action.payload});
+        case 'EDIT_CONTACT':
+            const array = state.map(item=>{
+                return item.id===action.payload?item.editable=true:item.editable=false
+            })
+            // console.log(array)
+            let arr = array.filter(item=>{return typeof item!=='boolean'?item:null});
+            console.log(arr)
+            return arr[0]
         default:
             return state;
     }

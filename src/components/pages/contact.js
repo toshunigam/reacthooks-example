@@ -1,15 +1,12 @@
 import React from "react";
 import { Alert, Row, Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { action_delete_contact, action_edit_contact } from "../../actions";
 import ContactForm from "../../forms/ContactForm";
-// import { useLocation } from "react-router-dom";
 
 const Contact = () => {
     const contact = useSelector(state=>state.contactReduce);
-    // console.log(contact);
-    // const { pathname } = useLocation();
-    // const userId = pathname.replace("/contact/", "");
-    // console.log(userId);
+    const dispatch = useDispatch()
     return(
         <Row>
             <div style={{ width: "97%", margin: "0 auto" }}>
@@ -42,10 +39,8 @@ const Contact = () => {
                                 <td>{item.phone}</td>
                                 <td>{item.address}</td>
                                 <td>
-                                    {/* <Link to={`/contact/${item.id}`}>
-                                        <button>Edit</button>
-                                    </Link> */}
-                                    <button>Delete</button>
+                                    <button onClick={()=>dispatch(action_edit_contact(item.id))}>Edit</button>
+                                    <button onClick={()=>dispatch(action_delete_contact(item.id))}>Delete</button>
                                 </td>
                             </tr>
                         )
