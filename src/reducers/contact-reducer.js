@@ -6,7 +6,7 @@ const contactReducer = (state=[],action)=>{
             return state.filter(item=>{return item.id!==action.payload});
         case 'EDIT_CONTACT':
             const array = state.map(item=>{
-                return item.id===action.payload?item.editable=true:item.editable=false
+                return item.id===action.payload?item.editable=true:item.editable=state
             })
             // console.log(array)
             let arr = array.filter(item=>{return typeof item!=='boolean'?item:null});
