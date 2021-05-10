@@ -6,7 +6,7 @@ import Software from "./components/pages/software";
 import About from "./components/pages/about";
 import Contact from "./components/pages/contact";
 import ProductForm from "./components/pages/ProductForm";
-import ContactForm from "./forms/contactForm";
+import ContactForm from "./forms/ContactForm";
 
 const routes = {
     "/": () => <UsersTable />,
@@ -16,6 +16,7 @@ const routes = {
     "/software":()=><Software />,
     "/about":()=><About />,
     "/contact":()=><Contact />,
+    "/contact/:{id}":()=><Contact />,
     "/addproduct":()=><ProductForm />,
     "/addcontact":()=><ContactForm />,
     "/addcontact/:{id}":()=><ContactForm />

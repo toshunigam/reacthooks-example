@@ -4,6 +4,7 @@ export const userList = () => {
     }
 }
 
+/* product module redux action */
 export const action_add_product = (formData)=>{
     return{
         type:'ADD_PRODUCT',
@@ -29,6 +30,15 @@ export const action_edit_product = (id)=>{
 export const action_update_product = (formData)=>{
     return{
         type:'UPDATE_PRODUCT',
+        payload:formData
+    }
+}
+
+/* Contact module redux action */
+
+export const action_add_contact = (formData)=>{
+    return{
+        type:'ADD_CONTACT',
         payload:formData
     }
 }

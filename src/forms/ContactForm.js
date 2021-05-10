@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { action_add_contact } from "../actions";
 
 function ContactForm() {
     const [fullname, setFullname] = useState('');
@@ -14,15 +16,25 @@ function ContactForm() {
     const handleAddress = (e) =>setAddress(e.target.value)
     const handlePolicy = (e) =>setPolicy(e.target.value)
 
-    const handleSubmit = ()=>{
+    const contact = useSelector(state=>state.contactReduce);
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
         if(fullname && email && phone && address){
             let formData = {
+                id:contact.length+1,
                 fullname:fullname,
                 email:email,
                 phone:phone,
                 address:address
             }
             console.log(formData)
+            dispatch(action_add_contact(formData));
+            setFullname('');
+            setEmail('')
+            setPhone('')
+            setAddress('')
         }
     }
     return (<>
