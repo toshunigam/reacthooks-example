@@ -4,13 +4,15 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import thunk from "redux-thunk";
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
+  applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 

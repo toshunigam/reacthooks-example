@@ -23,7 +23,14 @@ function ContactForm() {
 
     useEffect(()=>{
         if(contact.length>0){
-            let {_fullname, _email, _phoen, _address} = contact.filter(item=>{ return item.editable?item:null})
+            let {_id, _fullname, _email, _phone, _address, _editable} = contact.filter(item=>{ return item.editable?item:null})
+            console.log(_editable)
+            if(_editable && _id){
+                setFullname(_fullname);
+                setEmail(_email)
+                setPhone(_phone)
+                setAddress(_address)
+            }
         }
     },[contact])
 

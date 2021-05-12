@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Alert, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { thunk_action_creator } from "../../actions";
 import GithubInfo from "./GithubInfo";
@@ -13,7 +14,9 @@ const Services = () => {
     };
     return (
         <div style={{ width: "97%", margin: "0 auto" }}>
-            <h3>Services page</h3>
+            <Alert variant="success">
+                Get the GitHUB user detail using redux-thunk
+            </Alert>
             <div className="container">
                 <form onSubmit={handleSubmit} className="form">
                     <h2 className="title">Enter the Github Username</h2>
@@ -26,7 +29,7 @@ const Services = () => {
                     <button className="button">Submit</button>
                 </form>
 
-                {data.isFetching ? <h3>Loading...</h3> : null}
+                {data.isFetching ? <Spinner animation="border" variant="danger" /> : null}
                 {data.isError ? (
                     <h3 className="error">No such User exists.</h3>
                 ) : null}

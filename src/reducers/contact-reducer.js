@@ -11,7 +11,7 @@ const contactReducer = (state=[],action)=>{
             // console.log(array)
             let arr = array.filter(item=>{return typeof item!=='boolean'?item:null});
             console.log(arr)
-            return arr[0]
+            return arr[0];
         default:
             return state;
     }
