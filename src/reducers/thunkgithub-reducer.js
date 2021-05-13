@@ -27,5 +27,5 @@ const asyncReducer = (state = initialState, action) => {
     }
   };
   
-  export default asyncReducer;
+export default asyncReducer;
   
