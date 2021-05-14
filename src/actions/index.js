@@ -93,3 +93,32 @@ export const thunk_action_creator = username => {
           .catch(err => dispatch(receive_error()));
       };
   };
+
+
+  /* ANOTHER EXAMPLE OF REDUX THUNK */
+  export const addUPSync = ()=>{
+    return{
+      type:"ADDUP"
+    }
+  }
+
+  export const addUP = ()=>{
+    return dispatch => {
+      dispatch(loading())
+      setTimeout(()=>{
+        dispatch(addUPSync())
+      },5000)
+    }
+  }
+
+  export const loading = ()=>{
+    return {
+      type:'LOADING'
+    }
+  }
+
+  export const addDOWN = ()=>{
+    return{
+      type:"ADDDOWN"
+    }
+  }

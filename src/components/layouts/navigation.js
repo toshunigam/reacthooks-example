@@ -42,7 +42,7 @@ const Navigation = () => {
          <Nav.Link href="/contact">Contact</Nav.Link>
 
          <NavDropdown title="Technologies" id="basic-nav-dropdown">
-           <NavDropdown.Item href="#action/3.1">Database</NavDropdown.Item>
+           <NavDropdown.Item href="/thunk">Redux Thunk Example</NavDropdown.Item>
            <NavDropdown.Item href="#action/3.2"> NODEJS </NavDropdown.Item>
            <NavDropdown.Item href="#action/3.3">Alexa</NavDropdown.Item>
            <NavDropdown.Divider />
