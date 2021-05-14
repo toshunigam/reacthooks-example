@@ -14,6 +14,7 @@ const countReduce = (state=initialState,action)=>{
             return newState;
         case 'LOADING':
             newState.loading = true
+            break;
         default:
             return newState;
 
