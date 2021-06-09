@@ -1,16 +1,19 @@
-const productReducer = (state=[],action)=>{
+const initialState={
+    data:[],
+    editRow:{},
+    isEdit:false
+}
+const productReducer = (state=initialState,action)=>{
+    const newState = {...state}
     switch(action.type){
         case 'ADD_PRODUCT':
-            return state.concat(action.payload);
+            return newState.data.concat(action.payload);
         case 'EDIT_PRODUCT':
-            /* return state.map(item=>{
-                if(item.created===action.payload.id){
-                    return {...state,updateKey:action.payload.id}
-                }else{
-                    return state
-                }
-            }); */
-            return state.filter(item=>{return item.created===action.payload.id});
+                newState.data=state
+                newState.editRow=state.filter(item=>{return item.created===action.payload.id})
+                newState.isEdit=true
+                return newState
+            
         case 'UPDATE_PRODUCT':
             return state.map((item=>{
                 if(item.created===action.payload.updateKey){

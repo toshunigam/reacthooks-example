@@ -7,7 +7,7 @@ const Product = () => {
     const dispatch = useDispatch();
 
     const product = useSelector(state => state.productReduce);
-    // console.log("LIST", product)
+    console.log("LIST", product)
     return (
         <Row>
             <div style={{ width: "97%", margin: "0 auto" }}>
@@ -30,7 +30,7 @@ const Product = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {product.length > 0 ? product.map((item, index) => {
+                    {product.data.length > 0 ? product.data.map((item, index) => {
                         return (
                             <tr key={index}>
                                 <td>{index + 1}</td>
