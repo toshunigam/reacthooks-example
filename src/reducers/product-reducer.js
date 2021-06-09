@@ -7,10 +7,12 @@ const productReducer = (state=initialState,action)=>{
     const newState = {...state}
     switch(action.type){
         case 'ADD_PRODUCT':
-            return newState.data.concat(action.payload);
+            // console.log('adding product',newState)
+            newState.data.push(action.payload);
+            return newState;
         case 'EDIT_PRODUCT':
-                newState.data=state
-                newState.editRow=state.filter(item=>{return item.created===action.payload.id})
+            console.log('edit product',newState)
+                newState.editRow=newState.data.filter(item=>{return item.created===action.payload.id})
                 newState.isEdit=true
                 return newState
             
@@ -29,7 +31,7 @@ const productReducer = (state=initialState,action)=>{
         case 'DELETE_PRODUCT':
             return state.filter(item=>{return item.created!==action.payload});
         default:
-            return state;
+            return newState;
     }
 }
 export default productReducer;
