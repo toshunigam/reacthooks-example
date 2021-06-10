@@ -18,17 +18,15 @@ const productReducer = (state=initialState,action)=>{
                 return newState
             
         case 'UPDATE_PRODUCT':
-            return state.map((item=>{
+            console.log('edit product',newState)
+
+            newState.data.filter((item=>{
                 if(item.created===action.payload.updateKey){
-                    return {
-                        ...state,
-                        title:action.payload.title,
-                        description:action.payload.description
-                    }
-                }else{
-                    return state;
+                    item.title=action.payload.title,
+                    item.description=action.payload.description
                 }
             }));
+            return newState;
         case 'DELETE_PRODUCT':
             return state.filter(item=>{return item.created!==action.payload});
         default:
