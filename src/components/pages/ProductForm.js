@@ -1,13 +1,20 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { action_add_product } from "../../actions";
 
-function ProductForm() {
+function ProductForm({statusProp}) {
     const title = useRef();
     const description = useRef();
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        console.log(statusProp.isEdit)
+        if(statusProp.isEdit){
+            title.current.value=statusProp.editRow.title
+            description.current.value=statusProp.editRow.description
+        }
+    },[statusProp])
     const handleSubmit = (e) => {
         e.preventDefault();
         let d = new Date();
@@ -17,6 +24,8 @@ function ProductForm() {
             created: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getUTCMilliseconds()
         }
         console.log('adding')
+        title.current.value=''
+        description.current.value=''
         dispatch(action_add_product(formData));
     }
     return (<>

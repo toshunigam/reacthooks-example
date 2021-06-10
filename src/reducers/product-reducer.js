@@ -12,7 +12,8 @@ const productReducer = (state=initialState,action)=>{
             return newState;
         case 'EDIT_PRODUCT':
             console.log('edit product',newState)
-                newState.editRow=newState.data.filter(item=>{return item.created===action.payload.id})
+            let editedrow=newState.data.filter(item=>{return item.created===action.payload.id})
+                newState.editRow=editedrow[0]
                 newState.isEdit=true
                 return newState
             

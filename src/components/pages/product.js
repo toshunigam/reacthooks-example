@@ -16,7 +16,7 @@ const Product = () => {
                 </Alert>
                     
                 <div style={{ width: "50%", margin: "0 auto" }}>
-                    <ProductForm />
+                    <ProductForm statusProp={product} />
                 </div>
             </div>
             <Table striped bordered hover>
