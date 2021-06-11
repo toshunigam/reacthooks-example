@@ -18,14 +18,17 @@ const productReducer = (state=initialState,action)=>{
                 return newState
             
         case 'UPDATE_PRODUCT':
-            console.log('edit product',newState)
+            console.log('update product',newState)
 
-            newState.data.filter((item=>{
-                if(item.created===action.payload.updateKey){
-                    item.title=action.payload.title,
-                    item.description=action.payload.description
-                }
-            }));
+            let data =  newState.data.filter(item=>{
+                return item.created===action.payload.updateKey
+            }).map((obj,idx)=>{
+                obj.title=action.payload.title
+                obj.description=action.payload.description
+                return obj;
+            });
+            newState.isEdit=false;
+            newState.editRow={}
             return newState;
         case 'DELETE_PRODUCT':
             return state.filter(item=>{return item.created!==action.payload});
