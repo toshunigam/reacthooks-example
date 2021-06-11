@@ -64,7 +64,7 @@ export const fetch_post = () => {
     return {
       type: "FETCH_USER"
     };
-  };
+};
   
   export const receive_post = post => {
     return {
